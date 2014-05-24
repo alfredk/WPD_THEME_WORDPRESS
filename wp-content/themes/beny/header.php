@@ -24,7 +24,8 @@
 <div id="page" class="hfeed site">
 	
 	<header id="masthead" class="site-header" role="banner">
-
+	<i class="fa fa-search"></i>
+	<?php get_search_form(); ?>
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<a href="#" class="menu-toggle"><?php _e( 'Menu', 'beny' ); ?></a>
 			<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'beny' ); ?></a>

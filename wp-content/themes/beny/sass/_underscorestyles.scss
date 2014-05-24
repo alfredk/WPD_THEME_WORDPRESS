@@ -331,6 +331,24 @@ a:active {
 	}
 }
 
+header .search-submit{
+	display: none;
+}
+header .search-form{
+	display: none;
+}
+header .search-field{
+	width: 80%;
+	height: 40px;
+	font-size: 24px;
+}
+.fa-search{
+	font-size: 33px;
+	cursor: pointer;
+	margin: .25em;
+	float: right;
+}
+
 /*--------------------------------------------------------------
 5.3 Social Media Links and Icons
 --------------------------------------------------------------*/
@@ -592,7 +610,7 @@ a:active {
 
 /* Search widget */
 .widget_search .search-submit {
-	display: none;
+	//display: none;
 }
 .widget_recent_entries{
 
