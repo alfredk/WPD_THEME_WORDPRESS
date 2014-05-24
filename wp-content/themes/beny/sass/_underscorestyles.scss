@@ -165,7 +165,7 @@ a:active {
 	//display: block;
 	float: left;
 	width: 100%;
-	background-color: #404040;
+	//background-color: #404040;
 	line-height: 45px;
 }
 .main-navigation ul {
@@ -347,6 +347,7 @@ header .search-field{
 	cursor: pointer;
 	margin: .25em;
 	float: right;
+	color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -658,6 +659,9 @@ header .search-field{
 /*--------------------------------------------------------------
 10.0 Header
 --------------------------------------------------------------*/
+#masthead{
+	background-color: #404040;
+}
 @media screen and ( min-width: 40.5em ) {
 	#masthead{
 		width: 20%;
