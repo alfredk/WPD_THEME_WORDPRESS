@@ -20,7 +20,6 @@
 
 <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	
@@ -39,7 +38,7 @@
 		<?php endif; // End header image check. ?>
 	</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content"> <!-- open content -->
 		<div class="social">
 			<?php get_template_part( 'inc/social-media' ); ?>
 		</div>

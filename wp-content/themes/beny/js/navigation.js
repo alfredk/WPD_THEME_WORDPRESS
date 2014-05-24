@@ -21,7 +21,6 @@
 		button.style.display = 'none';
 		return;
 	}
-
 	if ( -1 === menu.className.indexOf( 'nav-menu' ) )
 		menu.className += ' nav-menu';
 
