@@ -474,7 +474,7 @@ a:active {
   font-size: 20px;
 }
 .main-navigation a:hover {
-  color: blue;
+  color: yellow;
   -webkit-transition: all 0.15s ease;
 }
 
