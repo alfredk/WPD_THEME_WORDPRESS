@@ -42,10 +42,6 @@ th {
 	font-weight: bold;
 }
 
-
-
-
-
 /*--------------------------------------------------------------
 4.0 Forms
 --------------------------------------------------------------*/
@@ -189,7 +185,7 @@ a:active {
 	color: #fff;
 	font-size: 20px;
 	&:hover{
-		color: red;
+		color: green;
 		-webkit-transition: all 0.15s ease;
 	}
 }
