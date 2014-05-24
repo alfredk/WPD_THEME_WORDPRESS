@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 _s
 ===
 
@@ -41,3 +42,11 @@ Then, update the stylesheet header in style.css and the links in footer.php with
 Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
 
 Good luck!
+=======
+Beny
+====
+
+Beny - Wordpress theme
+
+Still in production and not quite finished :)
+>>>>>>> 2bdd8a16f7d5a91f00dfb944b1e11bafed88c959
