@@ -473,7 +473,7 @@ a:active {
   font-size: 20px;
 }
 .main-navigation a:hover {
-  color: purple;
+  color: salmon;
   -webkit-transition: all 0.15s ease;
 }
 
