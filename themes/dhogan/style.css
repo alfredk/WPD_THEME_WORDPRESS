@@ -91,7 +91,7 @@ a img { border: 0; }
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-body, button, input, select, textarea { color: pink; font-family: "proxima-nova",sans-serif; font-size: 16px; font-size: 1.6rem; line-height: 1.5; }
+body, button, input, select, textarea { color: #404040; font-family: "proxima-nova",sans-serif; font-size: 16px; font-size: 1.6rem; line-height: 1.5; }
 
 body, h1, h2, h3, h4, h5, h6 { font-size-adjust: 0.5; }
 
