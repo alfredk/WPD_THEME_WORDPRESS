@@ -217,7 +217,7 @@ textarea { overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
 /*--------------------------------------------------------------
 5.1 Links
 --------------------------------------------------------------*/
-a { color: #404040; text-decoration: none; }
+a { color: red; text-decoration: none; }
 
 a:visited { color: #404040; }
 

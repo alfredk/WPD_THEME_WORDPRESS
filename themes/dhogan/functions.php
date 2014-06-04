@@ -131,3 +131,104 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+//CUSTOM CUSTOM POST TYPE
+add_action( 'init', 'dhogan_custom_postType_init' );
+function dhogan_custom_postType_init() {
+	$labels = array(
+		'name'               => 'Photos',
+		'singular_name'      => 'Photo',
+		'menu_name'          => 'Photos',
+		'name_admin_bar'     => 'Photo',
+		'add_new'            => 'Add New',
+		'add_new_item'       => 'Add New Photo',
+		'new_item'           => 'New Photo',
+		'edit_item'          => 'Edit Photo',
+		'view_item'          => 'View Photo',
+		'all_items'          => 'All Photos',
+		'search_items'       => 'Search Photos',
+		'parent_item_colon'  => 'Parent Photos',
+		'not_found'          => 'No Photos Found',
+		'not_found_in_trash' => 'No Photos Found in trash',
+	);
+	$args = array(
+		'labels'             => $labels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'menu_icon'          => 'dashicons-camera',
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'photos' ),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'hierarchical'       => true,
+		'menu_position'      => 5,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
+	);
+	register_post_type( 'photo', $args );
+}
+
+//CUSTOM TAXONOMY 
+add_action( 'init', 'dhogan_custom_taxonomies', 0 );
+function dhogan_custom_taxonomies() {
+// PHOTO CATEGORIES 
+	$labels = array(
+		'name'              => _x( 'Photo Categories', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Photo Location', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Photo Categories' ),
+		'all_items'         => __( 'All Photo Categories' ),
+		'parent_item'       => __( 'Parent Photo' ),
+		'parent_item_colon' => __( 'Parent Photo:' ),
+		'edit_item'         => __( 'Edit Photo' ),
+		'update_item'       => __( 'Update Photo' ),
+		'add_new_item'      => __( 'Add New Photo' ),
+		'new_item_name'     => __( 'New Photo Name' ),
+		'menu_name'         => __( 'Photo Categories' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'Photo' ),
+	);
+	register_taxonomy( 'Photo', array( 'photo' ), $args );
+
+// PHOTO LOCATION
+	$labels = array(
+		'name'              => _x( 'Photo Location', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Photo Location', 'taxonomy singular name' ),
+		'search_items'      => __( 'Search Photo Location' ),
+		'all_items'         => __( 'All Photo Location' ),
+		'parent_item'       => __( 'Parent Photo' ),
+		'parent_item_colon' => __( 'Parent Photo:' ),
+		'edit_item'         => __( 'Edit Photo' ),
+		'update_item'       => __( 'Update Photo' ),
+		'add_new_item'      => __( 'Add New Photo' ),
+		'new_item_name'     => __( 'New Photo Name' ),
+		'menu_name'         => __( 'Photo Location' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'Photo' ),
+	);
+	register_taxonomy( 'Location', array( 'photo' ), $args );
+}
+
+// goes and resets permalinks
+function my_rewrite_flush() {
+
+    dhogan_custom_postType_init();
+
+    flush_rewrite_rules();
+}
+register_activation_hook( __FILE__, 'my_rewrite_flush' );
