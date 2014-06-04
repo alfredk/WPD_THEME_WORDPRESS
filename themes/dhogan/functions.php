@@ -90,7 +90,7 @@ add_action( 'widgets_init', 'dhogan_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dhogan_scripts() {
-	wp_enqueue_style( 'dhogan-style', get_stylesheet_uri(), array(), 'null' );
+	wp_enqueue_style( 'dhogan-style', get_stylesheet_uri(), 'null' );
 
 	wp_enqueue_script( 'dhogan-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
