@@ -3,6 +3,13 @@
  * @package dhogan
  */
 ?>
+<?php
+// If we are looking at a Photo, jump to content-photo.php and ignore the rest
+if('photo' === get_post_type() ) {
+    get_template_part('content','photo');
+    return;
+}
+?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
@@ -21,7 +28,7 @@
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'dhogan' ) ); ?>
+		<?php the_excerpt( __( '&rarr;<span class="meta-nav">&rarr;</span>', 'dhogan' ) ); ?>
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . __( 'Pages:', 'dhogan' ),
@@ -39,7 +46,7 @@
 				if ( $categories_list && dhogan_categorized_blog() ) :
 			?>
 			<span class="cat-links">
-				<?php printf( __( 'Posted in %1$s', 'dhogan' ), $categories_list ); ?>
+				<?php //printf( __( 'Posted in %1$s', 'dhogan' ), $categories_list ); ?>
 			</span>
 			<?php endif; // End if categories ?>
 
@@ -49,7 +56,7 @@
 				if ( $tags_list ) :
 			?>
 			<span class="tags-links">
-				<?php printf( __( 'Tagged %1$s', 'dhogan' ), $tags_list ); ?>
+				<?php //printf( __( 'Tagged %1$s', 'dhogan' ), $tags_list ); ?>
 			</span>
 			<?php endif; // End if $tags_list ?>
 		<?php endif; // End if 'post' == get_post_type() ?>

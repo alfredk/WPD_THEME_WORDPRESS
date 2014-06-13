@@ -63,6 +63,7 @@ a:hover,
 a:focus,
 a:active {
 	color: #666;
+	text-decoration: underline;
 }
 .hide-text {
 	text-indent: 100%;
@@ -255,10 +256,48 @@ a:active {
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
+header#masthead {
+	border-bottom: 2px solid #AFBBDD;
+	margin-bottom: 40px;
+}
 .photo-index{
 	margin: 10px;
 }
+.social{
+	float: right;	
+}
+#page{
+	margin: .75em;
+}
+// above 900px
+@media (min-width: 56.25em) {
+	#page{
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	img.attachment-single-thumb.wp-post-image {
+		margin: 0 auto;
+		display: block;
+	}
+	.home{
+		#content {
+			margin: 0;
+		}
+	}
+	#content {
+		margin: 0 3em;
+	}
+}
+// above 700px
+@media (min-width: 43.75em) {
 
+}
+.isFront .type-post{
+	width: 260px;
+	.entry-title{
+		//text-align: center;
+	}
+}
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
@@ -284,7 +323,10 @@ a:active {
 	clear: both;
 	margin: 0 0 1.5em;
 }
-
+.entry-meta{
+	font-size: .85em;
+	font-weight: 300;
+}
 /*--------------------------------------------------------------
 10.2 Asides
 --------------------------------------------------------------*/

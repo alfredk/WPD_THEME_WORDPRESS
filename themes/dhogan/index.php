@@ -17,23 +17,10 @@ get_header(); ?>
 		<main id="main" class="photo-index" role="main">
 
 		<?php if ( have_posts() ) : ?>
-			<?php /* Start the Loop */ ?>
+
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php if(has_post_thumbnail()){ ?>
-
-					<article class="photo-item">
-						<?php 
-							echo '<a href="' . get_permalink() . '" title="' . __( 'review of the movie ') . get_the_title() . '" rel="bookmark">';
-							echo '<figure class="index-photo">';
-							the_post_thumbnail('index-thumb');	
-							echo '</figure>';
-							echo '</a>';
-						 ?>	
-
-					</article>
-
-				<?php } ?>
+				<?php get_template_part( 'content', get_post_format() ); ?>
 
 			<?php endwhile; ?>
 

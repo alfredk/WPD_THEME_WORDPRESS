@@ -52,8 +52,8 @@ function dhogan_post_nav() {
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'dhogan' ); ?></h1>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'dhogan' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'dhogan' ) );
+				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<i class="fa fa-fast-backward"></i> %title', 'Previous post link', 'dhogan' ) );
+				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <i class="fa fa-fast-forward"></i>', 'Next post link',     'dhogan' ) );
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -78,7 +78,7 @@ function dhogan_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'dhogan' ),
+	printf( __( '<span class="posted-on">Published %1$s</span><span class="byline"> by %2$s</span>', 'dhogan' ),
 		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
 			esc_url( get_permalink() ),
 			$time_string

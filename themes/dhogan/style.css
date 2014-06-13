@@ -128,6 +128,10 @@ big { font-size: 125%; }
 #page { font-size: 1em; /* equivalent to 16px */ line-height: 1.25; /* equivalent to 20px */ }
 
 @media (min-width: 43.75em) { #page { font-size: 1em; /* equivalent to 16px */ line-height: 1.375; /* equivalent to 22px */ } }
+h1.site-title { font-weight: 500; }
+
+h1.entry-title { font-weight: 300; }
+
 h1 { font-size: 2em; /* 2x body copy size = 32px */ line-height: 1.25; /* 45px / 36px */ }
 
 h2 { font-size: 1.625em; /* 1.625x body copy size = 26px */ line-height: 1.15384615; /* 30px / 26px */ }
@@ -221,7 +225,7 @@ a { color: #404040; text-decoration: none; }
 
 a:visited { color: #404040; }
 
-a:hover, a:focus, a:active { color: #666; }
+a:hover, a:focus, a:active { color: #666; text-decoration: underline; }
 
 .hide-text { text-indent: 100%; white-space: nowrap; overflow: hidden; }
 
@@ -293,7 +297,19 @@ a:hover, a:focus, a:active { color: #666; }
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
+header#masthead { border-bottom: 2px solid #AFBBDD; margin-bottom: 40px; }
+
 .photo-index { margin: 10px; }
+
+.social { float: right; }
+
+#page { margin: .75em; }
+
+@media (min-width: 56.25em) { #page { max-width: 1200px; margin: 0 auto; }
+  img.attachment-single-thumb.wp-post-image { margin: 0 auto; display: block; }
+  .home #content { margin: 0; }
+  #content { margin: 0 3em; } }
+.isFront .type-post { width: 260px; }
 
 /*--------------------------------------------------------------
 10.1 Posts and pages
@@ -307,6 +323,8 @@ a:hover, a:focus, a:active { color: #666; }
 .page-content, .entry-content, .entry-summary { margin: 1.5em 0 0; }
 
 .page-links { clear: both; margin: 0 0 1.5em; }
+
+.entry-meta { font-size: .85em; font-weight: 300; }
 
 /*--------------------------------------------------------------
 10.2 Asides

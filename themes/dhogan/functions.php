@@ -40,7 +40,8 @@ function dhogan_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 	      add_image_size('large-thumb', 1060, 650, true);
-        add_image_size('index-thumb', 320, 9999, false);
+        add_image_size('index-thumb', 290, 9999, false);
+        add_image_size('single-thumb', 9999, 650, false);
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -98,6 +99,8 @@ function dhogan_scripts() {
 		wp_enqueue_script( 'dhogan-enquire', get_stylesheet_directory_uri() . '/js/enquire.min.js', false, '20140530', true );
 		wp_enqueue_script( 'dhogan-custom', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery','jquery-masonry'), '20140529', true );
 
+  // FontAwesome
+  wp_enqueue_style('dhogan_fontawesome', get_template_directory_uri() . '/fonts/font-awesome/css/font-awesome.min.css');
 
 	wp_enqueue_script( 'dhogan-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -131,6 +134,16 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+// add CUSTOM post type to front page query
+function dhogan_cutom_post_isFront( $query ) {
+  if ( ! is_admin() && $query->is_main_query() ) {
+    if ($query->is_home() || $query->is_search() ) {
+    $query->set( 'post_type', array( 'post', 'photo' ) );
+    }
+  }
+}
+add_action( 'pre_get_posts', 'dhogan_cutom_post_isFront' );
 
 
 //CUSTOM CUSTOM POST TYPE
@@ -179,12 +192,12 @@ function dhogan_custom_taxonomies() {
 		'singular_name'     => _x( 'Photo Location', 'taxonomy singular name' ),
 		'search_items'      => __( 'Search Photo Categories' ),
 		'all_items'         => __( 'All Photo Categories' ),
-		'parent_item'       => __( 'Parent Photo' ),
-		'parent_item_colon' => __( 'Parent Photo:' ),
-		'edit_item'         => __( 'Edit Photo' ),
-		'update_item'       => __( 'Update Photo' ),
-		'add_new_item'      => __( 'Add New Photo' ),
-		'new_item_name'     => __( 'New Photo Name' ),
+		'parent_item'       => __( 'Parent Photo Categories' ),
+		'parent_item_colon' => __( 'Parent Photo Categories:' ),
+		'edit_item'         => __( 'Edit Photo Category' ),
+		'update_item'       => __( 'Update Photo Category' ),
+		'add_new_item'      => __( 'Add New Photo Category' ),
+		'new_item_name'     => __( 'New Photo Category' ),
 		'menu_name'         => __( 'Photo Categories' ),
 	);
 
@@ -204,12 +217,12 @@ function dhogan_custom_taxonomies() {
 		'singular_name'     => _x( 'Photo Location', 'taxonomy singular name' ),
 		'search_items'      => __( 'Search Photo Location' ),
 		'all_items'         => __( 'All Photo Location' ),
-		'parent_item'       => __( 'Parent Photo' ),
-		'parent_item_colon' => __( 'Parent Photo:' ),
-		'edit_item'         => __( 'Edit Photo' ),
-		'update_item'       => __( 'Update Photo' ),
-		'add_new_item'      => __( 'Add New Photo' ),
-		'new_item_name'     => __( 'New Photo Name' ),
+		'parent_item'       => __( 'Parent Photo Location' ),
+		'parent_item_colon' => __( 'Parent Photo Location:' ),
+		'edit_item'         => __( 'Edit Photo Location' ),
+		'update_item'       => __( 'Update Photo Location' ),
+		'add_new_item'      => __( 'Add New Photo Location' ),
+		'new_item_name'     => __( 'New Photo Location' ),
 		'menu_name'         => __( 'Photo Location' ),
 	);
 
