@@ -13,6 +13,8 @@
 
 
 	var $container = $('.photo-index').masonry();
+    var $galleryContainer = $('.photo-index').masonry();
+
 	enquire.register("screen and (min-width:768px)", {
 
     // Triggered when a media query matches.
@@ -23,15 +25,31 @@
             isAnimated: true,
             gutter: 10,
         });
+        // $galleryContainer.masonry({
+        //     itemSelector: '.gallery-item',
+        //     isFitWidth: true,
+        //     isAnimated: true,
+        // });
     },      
-
-    // Triggered when the media query transitions 
-    // *from a matched state to an unmatched state*.
     unmatch : function() {
         $container.masonry('destroy');
     }   
     
   }); 
 	  
+    var galleries = document.querySelectorAll('.gallery');
+    for ( var i=0, len = galleries.length; i < len; i++ ) {
+      var gallery = galleries[i];
+      initMasonry( gallery );
+    }
+    function initMasonry( container ) {
+      var imgLoad = imagesLoaded( container, function() {
+        new Masonry( container, {
+          itemSelector: '.gallery-item',
+          columnWidth: '.gallery-item',
+          isFitWidth: true
+        });
+      });
+    }
 
 } )(jQuery);

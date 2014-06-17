@@ -132,7 +132,7 @@ h1.site-title { font-weight: 500; }
 
 h1.entry-title { font-weight: 300; }
 
-h1 { font-size: 2em; /* 2x body copy size = 32px */ line-height: 1.25; /* 45px / 36px */ }
+h1 { font-size: 2em; /* 2x body copy size = 32px */ line-height: 1.25; margin: .2em 0; /* 45px / 36px */ }
 
 h2 { font-size: 1.625em; /* 1.625x body copy size = 26px */ line-height: 1.15384615; /* 30px / 26px */ }
 
@@ -306,7 +306,7 @@ header#masthead { border-bottom: 2px solid #AFBBDD; margin-bottom: 40px; }
 #page { margin: .75em; }
 
 @media (min-width: 56.25em) { #page { max-width: 1200px; margin: 0 auto; }
-  img.attachment-single-thumb.wp-post-image { margin: 0 auto; display: block; }
+  img.attachment-single-thumb.wp-post-image { margin: 15px auto; display: block; }
   .home #content { margin: 0; }
   #content { margin: 0 3em; } }
 .isFront .type-post { width: 260px; }
@@ -314,13 +314,13 @@ header#masthead { border-bottom: 2px solid #AFBBDD; margin-bottom: 40px; }
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
-.hentry { margin: 0 0 1.5em; }
+.hentry { margin: 0 0 .25em; }
 
 .byline, .updated { display: none; }
 
 .single .byline, .group-blog .byline { display: inline; }
 
-.page-content, .entry-content, .entry-summary { margin: 1.5em 0 0; }
+.page-content, .entry-content, .entry-summary { margin: 1.5em 0 1em; }
 
 .page-links { clear: both; margin: 0 0 1.5em; }
 
@@ -352,6 +352,8 @@ header#masthead { border-bottom: 2px solid #AFBBDD; margin-bottom: 40px; }
 
 /* Make sure embeds and iframes fit their containers */
 embed, iframe, object { max-width: 100%; }
+
+#swipebox-overlay { background-color: rgba(13, 13, 13, 0.9); }
 
 /*--------------------------------------------------------------
 12.1 Captions

@@ -276,7 +276,7 @@ header#masthead {
 		margin: 0 auto;
 	}
 	img.attachment-single-thumb.wp-post-image {
-		margin: 0 auto;
+		margin: 15px auto;
 		display: block;
 	}
 	.home{
@@ -304,7 +304,7 @@ header#masthead {
 .sticky {
 }
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0 0 .25em;
 }
 .byline,
 .updated {
@@ -317,7 +317,7 @@ header#masthead {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 1.5em 0 1em;
 }
 .page-links {
 	clear: both;
@@ -373,6 +373,9 @@ embed,
 iframe,
 object {
 	max-width: 100%;
+}
+#swipebox-overlay{
+	background-color: rgba(13,13,13, .90);
 }
 
 /*--------------------------------------------------------------

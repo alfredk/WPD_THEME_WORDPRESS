@@ -4,7 +4,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('photo-item'); ?>>
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
@@ -14,7 +14,7 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php the_post_thumbnail('single-thumb'); ?>
+		<?php //the_post_thumbnail('single-thumb'); ?>
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(

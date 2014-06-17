@@ -41,6 +41,7 @@ function dhogan_setup() {
 	add_theme_support( 'post-thumbnails' );
 	      add_image_size('large-thumb', 1060, 650, true);
         add_image_size('index-thumb', 290, 9999, false);
+        add_image_size('gallery-thumb', 250, 9999, false);
         add_image_size('single-thumb', 9999, 650, false);
 
 	// This theme uses wp_nav_menu() in one location.
@@ -69,6 +70,15 @@ function dhogan_setup() {
 endif; // dhogan_setup
 add_action( 'after_setup_theme', 'dhogan_setup' );
 
+
+remove_shortcode('gallery');
+add_shortcode('gallery', 'custom_size_gallery');
+
+function custom_size_gallery($attr) {
+    // Change size here - medium, large, full
+    $attr['size'] = 'gallery-thumb';
+    return gallery_shortcode($attr);
+}
 /**
  * Register widget area.
  *
@@ -81,8 +91,8 @@ function dhogan_widgets_init() {
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
 	) );
 }
 add_action( 'widgets_init', 'dhogan_widgets_init' );
@@ -91,6 +101,13 @@ add_action( 'widgets_init', 'dhogan_widgets_init' );
  * Enqueue scripts and styles.
  */
 function dhogan_scripts() {
+
+  if (is_page_template('page-templates/page-nosidebar.php') || ! is_active_sidebar( 'sidebar-1' )) {
+    wp_enqueue_style( 'my-sinome-layout-style' , get_template_directory_uri() . '/style.css');
+	} else {
+    wp_enqueue_style( 'my-sinome-layout-style' , get_template_directory_uri() . '/layouts/content-sidebar.css');
+	}
+
 	wp_enqueue_style( 'dhogan-style', get_stylesheet_uri(), 'null' );
 
 	wp_enqueue_script( 'dhogan-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -245,3 +262,8 @@ function my_rewrite_flush() {
     flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'my_rewrite_flush' );
+
+function new_excerpt_more( $more ) {
+	return  ' - <a class="read-more" href="'. get_permalink( get_the_ID() ) .'">' . __('More....', 'your-text-domain') . '</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
