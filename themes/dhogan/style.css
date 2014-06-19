@@ -204,6 +204,20 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 
 textarea { overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */ padding-left: 3px; vertical-align: top; /* Improves readability and alignment in all browsers */ width: 98%; }
 
+.social-media a { font-size: 22px; }
+.social-media a.social-twitter:hover { color: #00aced; }
+.social-media a.social-facebook:hover { color: #3b5998; }
+.social-media a.social-pinterest:hover { color: #cb2027; }
+.social-media a.social-instagram:hover { color: #517fa4; }
+.social-media a.social-linkedin:hover { color: #007bb6; }
+.social-media a.social-googleplus:hover { color: #dd4b39; }
+.social-media a.social-flickr:hover { color: #ff0084; }
+.social-media a.social-youtube:hover { color: #bb0000; }
+.social-media a.social-vimeo:hover { color: #aad450; }
+.social-media a.social-dribbbble:hover { color: #ea4c89; }
+.social-media a.social-tumblr:hover { color: #32506d; }
+.social-media a.social-behance:hover { color: #1769ff; }
+
 /*--------------------------------------------------------------
 5.0 Navigation
 --------------------------------------------------------------*/
@@ -314,13 +328,13 @@ header#masthead { border-bottom: 2px solid #AFBBDD; margin-bottom: 40px; }
 /*--------------------------------------------------------------
 10.1 Posts and pages
 --------------------------------------------------------------*/
-.hentry { margin: 0 0 .25em; }
+.hentry { margin: 0 0 0em; }
 
 .byline, .updated { display: none; }
 
 .single .byline, .group-blog .byline { display: inline; }
 
-.page-content, .entry-content, .entry-summary { margin: 1.5em 0 1em; }
+.page-content, .entry-content, .entry-summary { margin: 0; }
 
 .page-links { clear: both; margin: 0 0 1.5em; }
 
@@ -369,7 +383,11 @@ embed, iframe, object { max-width: 100%; }
 /*--------------------------------------------------------------
 12.2 Galleries
 --------------------------------------------------------------*/
-.gallery { margin-bottom: 1.5em; }
+@media (min-width: 43.75em) { .entry-content .gallery-columns-4 .gallery-item { max-width: 24%; } }
+@media (min-width: 56.25em) { .entry-content .gallery-columns-4 .gallery-item { max-width: 24%; } }
+.gallery { margin-bottom: 0em; }
+
+.gallery-item { display: none; width: 295px !important; }
 
 .gallery-item { display: inline-block; text-align: center; vertical-align: top; width: 100%; }
 
@@ -377,7 +395,7 @@ embed, iframe, object { max-width: 100%; }
 
 .gallery-columns-3 .gallery-item { max-width: 33.33%; }
 
-.gallery-columns-4 .gallery-item { max-width: 25%; }
+.gallery-columns-4 .gallery-item { max-width: 100%; }
 
 .gallery-columns-5 .gallery-item { max-width: 20%; }
 

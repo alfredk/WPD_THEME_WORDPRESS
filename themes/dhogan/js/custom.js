@@ -5,15 +5,12 @@
  */
 ( function($) {
 
-	// $('.hamburger').on('click', function() {
-	//   $(this).toggleClass('open');
-	//   var openclose = $(this).hasClass('open') ? 'Close' : 'Open';
-	//   $(this).attr("title", openclose + ' Menu');
-	// });
+// ('#sho-gallery').click(function){
 
+// }
 
 	var $container = $('.photo-index').masonry();
-    var $galleryContainer = $('.photo-index').masonry();
+    //var $galleryContainer = $('.photo-box').masonry();
 
 	enquire.register("screen and (min-width:768px)", {
 
@@ -25,10 +22,14 @@
             isAnimated: true,
             gutter: 10,
         });
-        // $galleryContainer.masonry({
+
+        // $container.masonry({
         //     itemSelector: '.gallery-item',
         //     isFitWidth: true,
         //     isAnimated: true,
+        //     itemSelector: '.gallery-item',
+        //     columnWidth: '.gallery-item',
+        //     isFitWidth: true,
         // });
     },      
     unmatch : function() {
@@ -37,7 +38,34 @@
     
   }); 
 	  
+  //   var galleries = document.querySelectorAll('.photo-box');
+
+  //   enquire.register("screen and (min-width:768px)", {
+
+  //     for ( var i=0, len = galleries.length; i < len; i++ ) {
+  //       var gallery = galleries[i];
+  //       initMasonry( gallery );
+  //     }
+  //     match : function initMasonry( container ) {
+  //       var imgLoad = imagesLoaded( container, function() {
+  //         new Masonry( container, {
+  //           itemSelector: '.gallery-item',
+  //           columnWidth: '.gallery-item',
+  //           isFitWidth: true,
+  //         });
+  //       });
+  //     },
+
+  //       unmatch : function() {
+  //         $container.masonry('destroy');
+  //     }  
+
+  // });
+
+    // var galleries = document.querySelectorAll('.photo-box');
+
     var galleries = document.querySelectorAll('.gallery');
+    
     for ( var i=0, len = galleries.length; i < len; i++ ) {
       var gallery = galleries[i];
       initMasonry( gallery );
@@ -47,9 +75,11 @@
         new Masonry( container, {
           itemSelector: '.gallery-item',
           columnWidth: '.gallery-item',
-          isFitWidth: true
+          isFitWidth: true,
         });
       });
     }
 
 } )(jQuery);
+
+

@@ -304,7 +304,7 @@ header#masthead {
 .sticky {
 }
 .hentry {
-	margin: 0 0 .25em;
+	margin: 0 0 0em;
 }
 .byline,
 .updated {
@@ -317,7 +317,7 @@ header#masthead {
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 1em;
+	margin: 0;
 }
 .page-links {
 	clear: both;
@@ -399,14 +399,32 @@ object {
 /*--------------------------------------------------------------
 12.2 Galleries
 --------------------------------------------------------------*/
-.gallery {
-	margin-bottom: 1.5em;
+// 700px
+@media (min-width: 43.75em) {
+	.entry-content .gallery-columns-4 .gallery-item {
+		max-width: 24%;
+	}
 }
+// 900px
+@media (min-width: 56.25em) {
+	.entry-content .gallery-columns-4 .gallery-item {
+		max-width: 24%;
+	}
+}
+.gallery {
+	margin-bottom: 0em;
+}
+.gallery-item {
+	display: none;
+	width: 295px !important
+}
+
 .gallery-item {
 	display: inline-block;
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
+	//padding: 0 5px;
 }
 .gallery-columns-2 .gallery-item {
 	max-width: 50%;
@@ -415,7 +433,7 @@ object {
 	max-width: 33.33%;
 }
 .gallery-columns-4 .gallery-item {
-	max-width: 25%;
+	max-width: 100%;
 }
 .gallery-columns-5 .gallery-item {
 	max-width: 20%;

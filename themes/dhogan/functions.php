@@ -41,7 +41,7 @@ function dhogan_setup() {
 	add_theme_support( 'post-thumbnails' );
 	      add_image_size('large-thumb', 1060, 650, true);
         add_image_size('index-thumb', 290, 9999, false);
-        add_image_size('gallery-thumb', 250, 9999, false);
+        add_image_size('gallery-thumb', 295, 9999, false);
         add_image_size('single-thumb', 9999, 650, false);
 
 	// This theme uses wp_nav_menu() in one location.
@@ -265,5 +265,5 @@ register_activation_hook( __FILE__, 'my_rewrite_flush' );
 
 function new_excerpt_more( $more ) {
 	return  ' - <a class="read-more" href="'. get_permalink( get_the_ID() ) .'">' . __('More....', 'your-text-domain') . '</a>';
-}
+	}
 add_filter('excerpt_more', 'new_excerpt_more');
