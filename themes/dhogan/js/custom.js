@@ -3,11 +3,15 @@
  *
  * Handles toggling the navigation menu for small screens.
  */
-( function($) {
-
+jQuery(document).ready(function($){
 // ('#sho-gallery').click(function){
 
 // }
+var $container = $('#container');
+// initialize Masonry after all images have loaded  
+$container.imagesLoaded( function() {
+  $container.masonry();
+});
 
 	var $container = $('.photo-index').masonry();
     //var $galleryContainer = $('.photo-box').masonry();
@@ -80,6 +84,6 @@
       });
     }
 
-} )(jQuery);
+});
 
 
