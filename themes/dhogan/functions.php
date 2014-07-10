@@ -112,9 +112,9 @@ function dhogan_scripts() {
 
 	wp_enqueue_script( 'dhogan-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
-		// custom js + masonry
-		wp_enqueue_script( 'dhogan-enquire', get_stylesheet_directory_uri() . '/js/enquire.min.js', false, '20140530', true );
-		wp_enqueue_script( 'dhogan-custom', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery','jquery-masonry'), '20140529', true );
+	// custom js + masonry
+	wp_enqueue_script( 'dhogan-enquire', get_stylesheet_directory_uri() . '/js/enquire.min.js', false, '20140530', true );
+	wp_enqueue_script( 'dhogan-custom', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery','jquery-masonry'), '20140529', true );
 
   // FontAwesome
   wp_enqueue_style('dhogan_fontawesome', get_template_directory_uri() . '/fonts/font-awesome/css/font-awesome.min.css');
@@ -200,10 +200,10 @@ function dhogan_custom_postType_init() {
 	register_post_type( 'photo', $args );
 }
 
-//CUSTOM TAXONOMY 
+//CUSTOM TAXONOMY
 add_action( 'init', 'dhogan_custom_taxonomies', 0 );
 function dhogan_custom_taxonomies() {
-// PHOTO CATEGORIES 
+// PHOTO CATEGORIES
 	$labels = array(
 		'name'              => _x( 'Photo Categories', 'taxonomy general name' ),
 		'singular_name'     => _x( 'Photo Location', 'taxonomy singular name' ),
@@ -263,7 +263,25 @@ function my_rewrite_flush() {
 }
 register_activation_hook( __FILE__, 'my_rewrite_flush' );
 
+// Custom length of excerpt 40 char instead of normal 55
+function custom_excerpt_length( $length ) {
+	return 40;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+// global Read More link
+function excerpt_read_more_link($output) {
+ global $post;
+ return $output . '<i class="fa fa-paragraph fa-1"></i><a class="moretag" href="'. get_permalink($post->ID) . '"> More</a>';
+}
+add_filter('the_excerpt', 'excerpt_read_more_link');
+
+//REMOVED the excerpt '{...}' text
 function new_excerpt_more( $more ) {
-	return  ' - <a class="read-more" href="'. get_permalink( get_the_ID() ) .'">' . __('More....', 'your-text-domain') . '</a>';
-	}
+	return '';
+}
 add_filter('excerpt_more', 'new_excerpt_more');
+
+
+
+show_admin_bar( true );

@@ -8,7 +8,7 @@ jQuery(document).ready(function($){
 
 // }
 var $container = $('#container');
-// initialize Masonry after all images have loaded  
+// initialize Masonry after all images have loaded
 $container.imagesLoaded( function() {
   $container.masonry();
 });
@@ -25,6 +25,7 @@ $container.imagesLoaded( function() {
             isFitWidth: true,
             isAnimated: true,
             gutter: 10,
+            columnWidth: 10
         });
 
         // $container.masonry({
@@ -35,13 +36,13 @@ $container.imagesLoaded( function() {
         //     columnWidth: '.gallery-item',
         //     isFitWidth: true,
         // });
-    },      
+    },
     unmatch : function() {
         $container.masonry('destroy');
-    }   
-    
-  }); 
-	  
+    }
+
+  });
+
   //   var galleries = document.querySelectorAll('.photo-box');
 
   //   enquire.register("screen and (min-width:768px)", {
@@ -62,14 +63,14 @@ $container.imagesLoaded( function() {
 
   //       unmatch : function() {
   //         $container.masonry('destroy');
-  //     }  
+  //     }
 
   // });
 
     // var galleries = document.querySelectorAll('.photo-box');
 
     var galleries = document.querySelectorAll('.gallery');
-    
+
     for ( var i=0, len = galleries.length; i < len; i++ ) {
       var gallery = galleries[i];
       initMasonry( gallery );

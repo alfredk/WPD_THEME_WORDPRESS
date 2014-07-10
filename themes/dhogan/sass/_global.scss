@@ -65,6 +65,15 @@ a:active {
 	color: #666;
 	text-decoration: underline;
 }
+.moretag{
+	color: #203E94;
+	&:visited{
+		color: #203E94;
+	}
+	&:hover{
+		color: #666;
+	}
+}
 .hide-text {
 	text-indent: 100%;
 	white-space: nowrap;
@@ -92,6 +101,7 @@ a:active {
 	display: block;
 	text-decoration: none;
 	padding: 10px;
+	text-transform: uppercase;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -264,7 +274,7 @@ header#masthead {
 	margin: 10px;
 }
 .social{
-	float: right;	
+	float: right;
 }
 #page{
 	margin: .75em;
@@ -285,17 +295,18 @@ header#masthead {
 		}
 	}
 	#content {
-		margin: 0 3em;
+		margin: 0 3em 0 0;
 	}
-}
-// above 700px
+} // END OF 56.25em MQ
+// above  above 700px
 @media (min-width: 43.75em) {
 
 }
 .isFront .type-post{
-	width: 260px;
-	.entry-title{
-		//text-align: center;
+	max-width: 290px;
+	padding: 10px;
+	h1.entry-title{
+		font-size: 2em;
 	}
 }
 /*--------------------------------------------------------------
@@ -326,6 +337,7 @@ header#masthead {
 .entry-meta{
 	font-size: .85em;
 	font-weight: 300;
+	margin: 0 0 .5em;
 }
 /*--------------------------------------------------------------
 10.2 Asides
@@ -399,24 +411,20 @@ object {
 /*--------------------------------------------------------------
 12.2 Galleries
 --------------------------------------------------------------*/
-// 700px
+//  above 700px
 @media (min-width: 43.75em) {
 	.entry-content .gallery-columns-4 .gallery-item {
 		max-width: 24%;
 	}
 }
-// 900px
+// above 900px
 @media (min-width: 56.25em) {
 	.entry-content .gallery-columns-4 .gallery-item {
 		max-width: 24%;
 	}
 }
 .gallery {
-	margin-bottom: 0em;
-}
-.gallery-item {
-	display: none;
-	width: 295px !important
+	margin: 0 5px 0 5px;
 }
 
 .gallery-item {
@@ -424,7 +432,6 @@ object {
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
-	//padding: 0 5px;
 }
 .gallery-columns-2 .gallery-item {
 	max-width: 50%;
@@ -451,3 +458,19 @@ object {
 	max-width: 11.11%;
 }
 .gallery-caption {}
+
+
+/**
+ * -------------
+ * MEDIA QUERIES
+ * --------------
+ */
+// below 800px
+@media (max-width: 50em) {
+	.site-content .widget-area {
+		width: 100%;
+	}
+	.site-main {
+		margin: 0 0 1.5em 0;
+	}
+}
