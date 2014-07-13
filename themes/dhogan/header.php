@@ -34,7 +34,18 @@
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
 		<div class="search-toggle">
+			<i class="fa fa-search fa-2"></i>
 			<a href="#search-container" class="screen-reader-text">Search</a>
+		</div>
+		<div id="search-container" class="search-box-wrapper hide">
+			<div class="search-box">
+				<form role="search" method="get" id="searchform" class="search-form" action="<?php esc_url( home_url( '/' )); ?>">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="<?php get_search_query(); ?>" id="s" name="s" title="Search for:">
+				</label>
+				<input type="submit" id="searchsubmit" class="search-submit" value="<?php esc_attr_x( 'Search', 'submit button' ); ?>" />
+			</form>			</div>
 		</div>
 	</header><!-- #masthead -->
 		<div class="social">

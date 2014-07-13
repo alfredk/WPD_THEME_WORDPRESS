@@ -13,7 +13,7 @@ if ( ! function_exists( 'dhogan_paging_nav' ) ) :
  */
 function dhogan_paging_nav() {
 	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+	if ( $GLOBALS['wp_query']->max_num_pages < 10) {
 		return;
 	}
 	?>

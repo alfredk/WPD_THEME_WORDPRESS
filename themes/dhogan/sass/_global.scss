@@ -34,7 +34,7 @@
   background-color: black;
   &:before, &:after {
     top: 40%;
-    -webkit-transform: rotate(45deg);
+    -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
@@ -264,13 +264,91 @@ a:active {
 .widget_search .search-submit {
 	display: none;
 }
+//SEARCH TOGGLE BUTTON 56.25em
+@media (min-width: 56.25em) {
+	.site-header .search-box-wrapper{
+		top: 110px !important;
+	}
+	.search-box .search-field{
+		width: 90% !important;
+	}
 
+}
+@media (min-width: 43.75em) {
+	.site-header .search-box-wrapper{
+		top: 105px;
+	}
+	.search-box .search-field{
+		width: 60% !important;
+	}
+}
+@media (min-width: 600px) and (max-width: 43.75em) {
+	.site-header .search-box-wrapper{
+		top: 80px;
+	}
+}
+.search-toggle {
+	background-color: #fff;
+	cursor: pointer;
+	float: right;
+	height: 32px;
+	text-align: center;
+	width: 32px;
+	margin-top: 10px;
+	.fa-search{
+		color: #AFBBDD;
+		font-size: 24px;
+	}
+}
+.search-box-wrapper {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	top: 90px;
+	right: 0;
+	width: 100%;
+	z-index: 2;
+}
+.search-box-wrapper{
+	//padding-left: 222px;
+}
+.search-box {
+	background-color: rgba(175, 187, 221, 0.41);
+	padding: 10px;
+	.search-field {
+		background-color: #fff;
+		border: 0px;
+		font-size: 16px;
+		padding: 2px 2px 3px 6px;
+		width: 60%;
+		border-radius: 0;
+	}
+}
+input[type="submit"] {
+	background-color: rgba(175, 187, 221, 1);
+	border: 0;
+	border-radius: 2px;
+	color: #404040;
+	font-size: 16px;
+	font-weight: 500;
+	padding: 10px 30px 11px;
+	text-transform: uppercase;
+	vertical-align: bottom;
+}
+.search-submit {
+	display: none;
+}
+.hide {
+	display: none;
+}
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
 header#masthead {
 	border-bottom: 2px solid #AFBBDD;
 	margin-bottom: 40px;
+	position: relative;
 }
 .photo-index{
 	margin: 10px;
@@ -278,6 +356,9 @@ header#masthead {
 @media (max-width: 35em) {
 	.photo-index{
 		width: 100% !important;
+	}
+	.wpcf7-form-control{
+		width: 95%;
 	}
 }
 .social{
