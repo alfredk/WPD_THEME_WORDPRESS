@@ -12,6 +12,7 @@ textarea {
 	font-size: 16px;
 	font-size: 1.6rem;
 	line-height: 1.5;
+  word-break: break-word;
 }
 body {
   //font-size: 100%;
@@ -95,7 +96,7 @@ h1.entry-title {
   font-weight: 300;
 }
 h1 {
-  font-size: 2em;
+  font-size: 1.5em;
   /* 2x body copy size = 32px */
   line-height: 1.25;
   margin: .2em 0;

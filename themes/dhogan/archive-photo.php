@@ -15,20 +15,22 @@ get_header(); ?>
 
 				<?php if(has_post_thumbnail()){ ?>
 					<article class="photo-item">
-						<?php 
+						<?php
 							echo '<a href="' . get_permalink() . '" title="' . __( 'Photo of ') . get_the_title() . '" rel="bookmark">';
 							echo '<figure class="index-photo">';
-							the_post_thumbnail('index-thumb');	
+							the_post_thumbnail('index-thumb');
+							echo '<figcaption>'.get_the_title().'</figcaption>';
+						 	echo '<span class="img-hover"></span>';
 							echo '</figure>';
 							echo '</a>';
-						 ?>	
+						 ?>
 					</article>
 				<?php } ?>
 
 			<?php endwhile; ?>
 
 			<?php dhogan_paging_nav(); ?>
-		
+
 		<?php endif ?>
 
 		</main><!-- #main -->

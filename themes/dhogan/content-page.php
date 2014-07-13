@@ -21,6 +21,6 @@
 		?>
 	</div><!-- .entry-content -->
 	<footer class="entry-footer">
-		<?php edit_post_link( __( 'Edit', 'dhogan' ), '<i class="fa fa-pencil-square-o fa-1"></i><span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( '<i class="fa fa-pencil-square-o fa-1"></i>', 'dhogan' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

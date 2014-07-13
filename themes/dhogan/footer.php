@@ -11,10 +11,12 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+		<nav id="footer-site-navigation" class="footer main-navigation" role="navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+		</nav><!-- #site-navigation -->
+
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'dhogan' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'dhogan' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'dhogan' ), 'dhogan', '<a href="http://alfredk.com" rel="designer">Alfred Kolowrat</a>' ); ?>
+			<?php printf( __( '%1$s by %2$s.', 'dhogan' ), 'dhogan', '<a href="http://alfredk.com" rel="designer">Alfred Kolowrat</a>' ); ?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

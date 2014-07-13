@@ -84,9 +84,8 @@ a:active {
 --------------------------------------------------------------*/
 .main-navigation {
 	clear: both;
-	display: block;
+	display: inline-block;
 	float: left;
-	width: 100%;
 }
 .main-navigation ul {
 	list-style: none;
@@ -102,6 +101,9 @@ a:active {
 	text-decoration: none;
 	padding: 10px;
 	text-transform: uppercase;
+	&:hover{
+		color: #AFBBDD;
+	}
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -215,7 +217,7 @@ a:active {
 .aligncenter {
 	clear: both;
 	display: block;
-	margin: 0 auto;
+	margin: 1em auto;
 }
 
 /*--------------------------------------------------------------
@@ -273,11 +275,47 @@ header#masthead {
 .photo-index{
 	margin: 10px;
 }
+@media (max-width: 35em) {
+	.photo-index{
+		width: 100% !important;
+	}
+}
 .social{
 	float: right;
+	margin-top: -30px;
 }
 #page{
 	margin: .75em;
+}
+.photo-item figure.index-photo{
+	.img-hover{
+		webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: 5px solid #fff;
+		opacity: 0;
+		min-height: 100%;
+		width: 100%;
+		&:hover{
+			opacity: 1;
+		}
+	}
+}
+.index-photo{
+	figcaption{
+		position: absolute;
+		bottom: 10%;
+		left: 5%;
+		color: #f2f2f2;
+		text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.8), 0 0 40px black;
+		&:hover{
+			color: #CACDD4;
+		}
+	}
 }
 // above 900px
 @media (min-width: 56.25em) {
@@ -291,11 +329,11 @@ header#masthead {
 	}
 	.home{
 		#content {
-			margin: 0;
+			margin: 0 auto;
 		}
 	}
 	#content {
-		margin: 0 3em 0 0;
+		margin: 0 1em;
 	}
 } // END OF 56.25em MQ
 // above  above 700px
@@ -307,6 +345,24 @@ header#masthead {
 	padding: 10px;
 	h1.entry-title{
 		font-size: 2em;
+	}
+}
+.site-title{
+  display: inline-block;
+  a:hover{
+    text-decoration: none;
+  }
+}
+.site-info{
+	float: right;
+}
+.post-type-archive-photo{
+	#content {
+		margin: 2em 0;
+	}
+	.photo-index{
+		width: 100% !important;
+		margin: 2em 0;
 	}
 }
 /*--------------------------------------------------------------
@@ -402,31 +458,72 @@ object {
 	margin: 0 auto;
 }
 .wp-caption-text {
-	text-align: center;
+	//text-align: center;
 }
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	//margin: 0.8075em 0;
+}
+
+.gallery-caption {
+	position: absolute;
+	bottom: 10%;
+	left: 5%;
+	color: #f2f2f2;
+	font-size: 12px;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.8), 0 0 40px black;
+	&:hover{
+		color: #CACDD4;
+	}
 }
 
 /*--------------------------------------------------------------
 12.2 Galleries
 --------------------------------------------------------------*/
 //  above 700px
-@media (min-width: 43.75em) {
+@media (min-width: 35em) {
+	.entry-content .gallery-columns-9 .gallery-item,
+	.entry-content .gallery-columns-8 .gallery-item,
+	.entry-content .gallery-columns-7 .gallery-item,
+	.entry-content .gallery-columns-6 .gallery-item {
+		max-width: 32.33%;
+	}
+	.entry-content .gallery-columns-5 .gallery-item {
+		max-width: 19%;
+	}
 	.entry-content .gallery-columns-4 .gallery-item {
 		max-width: 24%;
 	}
+	.entry-content .gallery-columns-3 .gallery-item {
+		max-width: 32.33%
+	}
+	.entry-content .gallery-columns-2 .gallery-item {
+		max-width: 50%;
+	}
 }
 // above 900px
-@media (min-width: 56.25em) {
+@media (min-width: 50em) {
+	.entry-content .gallery-columns-9 .gallery-item,
+	.entry-content .gallery-columns-8 .gallery-item,
+	.entry-content .gallery-columns-7 .gallery-item,
+	.entry-content .gallery-columns-6 .gallery-item {
+		max-width: 15.66%;
+	}
+	.entry-content .gallery-columns-5 .gallery-item {
+		max-width: 19%;
+	}
 	.entry-content .gallery-columns-4 .gallery-item {
 		max-width: 24%;
+	}
+	.entry-content .gallery-columns-3 .gallery-item {
+		max-width: 32.33%;
+	}
+	.entry-content .gallery-columns-2 .gallery-item {
+		max-width: 50%;
 	}
 }
 .gallery {
 	margin: 0 5px 0 5px;
 }
-
 .gallery-item {
 	display: inline-block;
 	text-align: center;
@@ -434,30 +531,30 @@ object {
 	width: 100%;
 }
 .gallery-columns-2 .gallery-item {
-	max-width: 50%;
+	max-width: 100%;
 }
 .gallery-columns-3 .gallery-item {
-	max-width: 33.33%;
+	max-width: 100%;
 }
 .gallery-columns-4 .gallery-item {
 	max-width: 100%;
 }
 .gallery-columns-5 .gallery-item {
-	max-width: 20%;
+	max-width: 100%;
 }
 .gallery-columns-6 .gallery-item {
-	max-width: 16.66%;
+	max-width: 100%;
 }
 .gallery-columns-7 .gallery-item {
-	max-width: 14.28%;
+	max-width: 100%;
 }
 .gallery-columns-8 .gallery-item {
-	max-width: 12.5%;
+	max-width: 100%;
 }
 .gallery-columns-9 .gallery-item {
-	max-width: 11.11%;
+	max-width: 100%;
 }
-.gallery-caption {}
+
 
 
 /**

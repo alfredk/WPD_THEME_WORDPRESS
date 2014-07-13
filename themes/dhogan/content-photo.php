@@ -14,6 +14,8 @@
 							echo '<a href="' . get_permalink() . '" title="' . __( 'A photo of ') . get_the_title() . '" rel="bookmark">';
 							echo '<figure class="index-photo">';
 							the_post_thumbnail('index-thumb');
+							echo '<figcaption>'.get_the_title().'</figcaption>';
+						 	echo '<span class="img-hover"></span>';
 							echo '</figure>';
 							echo '</a>';
 						 ?>

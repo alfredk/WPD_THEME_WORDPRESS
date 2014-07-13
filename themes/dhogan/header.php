@@ -16,7 +16,6 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <script type="text/javascript" src="//use.typekit.net/lrw1rqq.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
 <?php wp_head(); ?>
 </head>
 
@@ -25,9 +24,6 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'dhogan' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="social">
-			<?php get_template_part( 'inc/social-media' ); ?>
-		</div>
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -37,6 +33,12 @@
 			<a href='#' class="hide-text menu-toggle hamburger" title="open menu"><?php _e( 'Primary Menu', 'dhogan' ); ?></a>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
+		<div class="search-toggle">
+			<a href="#search-container" class="screen-reader-text">Search</a>
+		</div>
 	</header><!-- #masthead -->
+		<div class="social">
+			<?php get_template_part( 'inc/social-media' ); ?>
+		</div>
 
 	<div id="content" class="site-content">

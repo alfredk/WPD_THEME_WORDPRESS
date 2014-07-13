@@ -107,25 +107,34 @@ function dhogan_scripts() {
 	} else {
     wp_enqueue_style( 'my-sinome-layout-style' , get_template_directory_uri() . '/layouts/content-sidebar.css');
 	}
-
+	// _'s stock stuff
 	wp_enqueue_style( 'dhogan-style', get_stylesheet_uri(), 'null' );
-
 	wp_enqueue_script( 'dhogan-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'dhogan-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	// custom js + masonry
 	wp_enqueue_script( 'dhogan-enquire', get_stylesheet_directory_uri() . '/js/enquire.min.js', false, '20140530', true );
 	wp_enqueue_script( 'dhogan-custom', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery','jquery-masonry'), '20140529', true );
 
+	// google fonts
+	wp_register_style('googleFonts', 'http://fonts.googleapis.com/css?family=Raleway:400,300,700');
+  	wp_enqueue_style( 'googleFonts');
+
   // FontAwesome
   wp_enqueue_style('dhogan_fontawesome', get_template_directory_uri() . '/fonts/font-awesome/css/font-awesome.min.css');
 
-	wp_enqueue_script( 'dhogan-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'dhogan_scripts' );
+
+// theme editor stypes
+function dhogan_add_editor_styles() {
+    add_editor_style( 'editor-style.css' );
+}
+add_action( 'init', 'dhogan_add_editor_styles' );
 
 /**
  * Implement the Custom Header feature.
@@ -257,9 +266,9 @@ function dhogan_custom_taxonomies() {
 // goes and resets permalinks
 function my_rewrite_flush() {
 
-    dhogan_custom_postType_init();
+  dhogan_custom_postType_init();
 
-    flush_rewrite_rules();
+  flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'my_rewrite_flush' );
 
@@ -272,7 +281,7 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 // global Read More link
 function excerpt_read_more_link($output) {
  global $post;
- return $output . '<i class="fa fa-paragraph fa-1"></i><a class="moretag" href="'. get_permalink($post->ID) . '"> More</a>';
+ return $output . '<a class="moretag" href="'. get_permalink($post->ID) . '"><i class="fa fa-paragraph fa-1"></i> More</a>';
 }
 add_filter('the_excerpt', 'excerpt_read_more_link');
 
@@ -281,7 +290,3 @@ function new_excerpt_more( $more ) {
 	return '';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
-
-
-
-show_admin_bar( true );
