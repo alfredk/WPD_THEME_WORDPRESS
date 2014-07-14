@@ -1,0 +1,14 @@
+<?php
+/**
+ * @package pergola
+ */
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class('photo-item'); ?>>
+
+	<div class="entry-content">
+		<?php the_content(); ?>
+
+	</div><!-- .entry-content -->
+
+</article><!-- #post-## -->
