@@ -290,3 +290,15 @@ function new_excerpt_more( $more ) {
 	return '';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+/**
+ * Load welcome message.
+ */
+require get_template_directory() . '/inc/theme-welcome.php';
+
+
+
+// if plugin activations
+// http://wordpress.stackexchange.com/questions/73859/show-warning-if-plugin-is-missing
+// http://alexking.org/blog/2012/07/09/include-plugin-in-wordpress-theme
+// http://tgmpluginactivation.com/
