@@ -14,7 +14,9 @@ $container.imagesLoaded( function() {
 });
 
 	var $container = $('.photo-index').masonry();
-	enquire.register("screen and (min-width:767px)", {
+//	enquire.register("screen and (min-width:767px)", {
+    enquire.register("(min-width:599px)", {
+
     // Triggered when a media query matches.
     match : function() {
         $container.masonry({
