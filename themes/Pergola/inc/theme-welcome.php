@@ -35,8 +35,8 @@ add_action( 'admin_enqueue_scripts', 'thsp_enqueue_pointer_script_style' );
 
 function thsp_pointer_print_scripts() {
 
-    $pointer_content  = "<h3>Welcome to the Popup Demo</h3>";
-    $pointer_content .= "<p>Here is where you can customize the theme.</p>";
+    $pointer_content  = "<h3>Welcome to the Pergola, a WordPress Theme </h3>";
+    $pointer_content .= "<p>Here is where you can customize the theme. for best use of the gallery add a plugin that extends the WordPredd Gallery, like Jetpack or Responsive Lightbox by dFactory</p>";
     ?>
 
     <script type="text/javascript">
